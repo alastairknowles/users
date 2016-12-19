@@ -3,15 +3,13 @@ package domain;
 import domain.definition.UsersDefinition;
 import parser.definition.FileType;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "users")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UsersGroup implements UsersDefinition {
     
+    @XmlTransient
     private FileType fileType;
     
     public UsersGroup() {

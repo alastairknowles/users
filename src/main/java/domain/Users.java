@@ -1,5 +1,6 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import domain.definition.UsersDefinition;
 import parser.definition.FileType;
 
