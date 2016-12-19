@@ -35,7 +35,7 @@ public class XmlParser implements ParserDefinition<UsersGroup> {
         try {
             this.marshaller.marshal(usersDefinition, stringWriter);
             String serialized = stringWriter.toString();
-            serialized.replace("\n", "\r\n");
+            serialized = serialized.replace("\n", "\r\n");
             return serialized;
         } finally {
             IOUtils.closeQuietly(stringWriter);
