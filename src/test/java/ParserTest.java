@@ -19,7 +19,7 @@ public class ParserTest {
                 Assert.assertTrue(actualFile.lastModified() > baseline);
         
                 File expectedFile = new File(getClass().getClassLoader().getResource("users." + extension).getFile());
-                Assert.assertArrayEquals(Files.readAllBytes(expectedFile.toPath()), Files.readAllBytes(actualFile.toPath()));
+                Assert.assertEquals(new String(Files.readAllBytes(expectedFile.toPath())), new String(Files.readAllBytes(actualFile.toPath())));
             }
             
             runCounter++;
