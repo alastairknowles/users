@@ -19,6 +19,8 @@ public class CsvParser implements ParserDefinition<Users> {
     
     private CsvParserSettings csvParserSettings;
     
+    private BeanWriterProcessor<User> beanWriterProcessor;
+    
     private CsvWriterSettings csvWriterSettings;
     
     public CsvParser() {
@@ -27,7 +29,7 @@ public class CsvParser implements ParserDefinition<Users> {
         this.csvParserSettings.setProcessor(beanListProcessor);
         this.csvParserSettings.setHeaderExtractionEnabled(true);
         
-        BeanWriterProcessor<User> beanWriterProcessor = new BeanWriterProcessor<>(User.class);
+        this.beanWriterProcessor = new BeanWriterProcessor<>(User.class);
         this.csvWriterSettings = new CsvWriterSettings();
         this.csvWriterSettings.setRowWriterProcessor(beanWriterProcessor);
         this.csvWriterSettings.setHeaders("User ID", "First Name", "Last Name", "Username", "User Type", "Last Login Time");

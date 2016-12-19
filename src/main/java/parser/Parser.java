@@ -20,11 +20,8 @@ public class Parser {
     public void serialize(UsersDefinition usersDefinition, String path) throws Exception {
         FileType fileType = usersDefinition.getFileType();
         ParserDefinition parser = FileType.getParser(fileType);
-        
-        String outputPath = getClass().getProtectionDomain().getCodeSource().getLocation().getPath() + "/output";
-        FileUtils.forceMkdir(new File(outputPath));
-        
-        FileUtils.writeStringToFile(new File(outputPath + "/users." + fileType.name().toLowerCase()), parser.serialize(usersDefinition), "UTF-8");
+        FileUtils.forceMkdir(new File(path.substring(0, path.lastIndexOf("/"))));
+        FileUtils.writeStringToFile(new File(path), parser.serialize(usersDefinition), "UTF-8");
     }
     
 }

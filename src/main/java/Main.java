@@ -9,8 +9,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Parser parser = BeanUtils.instantiate(Parser.class);
         for (String extension : EXTENSIONS) {
-            UsersDefinition users = parser.deserialize("input/users." + extension);
-            parser.serialize(users, "output/users." + extension);
+            String fileName = "users." + extension;
+            UsersDefinition users = parser.deserialize("input/" + fileName);
+            parser.serialize(users, Main.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "output/" + fileName);
         }
     }
     
