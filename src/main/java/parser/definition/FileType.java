@@ -16,7 +16,7 @@ public enum FileType {
     JSON(JsonParser.class),
     XML(XmlParser.class);
     
-    private static final Map<FileType, ParserDefinition> PARSERS = new HashMap();
+    private static final Map<FileType, ParserDefinition> PARSERS = new HashMap<>();
     
     static {
         Arrays.stream(values()).forEach(fileType -> PARSERS.put(fileType, BeanUtils.instantiate(fileType.parserClass)));
