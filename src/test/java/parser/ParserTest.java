@@ -12,6 +12,7 @@ public class ParserTest {
     public void shouldOrderDeserializedEntitiesAscending() throws Exception {
         JsonParser jsonParser = (JsonParser) FileType.getParser(FileType.JSON);
         Users users = jsonParser.deserialize("input/users.json");
+        Assert.assertEquals(5, users.size());
         
         Long lastUserId = 0L;
         for (User user : users) {
